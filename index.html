@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <title>Document</title>
+</head>
+
+<style>
+
+    /* 로보토 Condensed 폰트 */
+    @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap");
+
+    /* 롯데마트드림 폰트 */
+    @font-face {
+        font-family: "LotteMartDream";
+        font-style: normal;
+        font-weight: 400;
+        src: url("//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamMedium.woff2")
+            format("woff2"),
+            url("//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamMedium.woff")
+            format("woff");
+    }
+
+    @font-face {
+        font-family: "LotteMartDream";
+        font-style: normal;
+        font-weight: 700;
+        src: url("//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamBold.woff2")
+            format("woff2"),
+            url("//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamBold.woff")
+            format("woff");
+    }
+
+    @font-face {
+        font-family: "LotteMartDream";
+        font-style: normal;
+        font-weight: 300;
+        src: url("//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamLight.woff2")
+            format("woff2"),
+            url("//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamLight.woff")
+            format("woff");
+    }
+
+    html {
+        font-family: "Roboto Condensed", "LotteMartDream", sans-serif;
+    }
+
+    body {
+        min-width: 1200px;
+    }
+
+    body, ul, li {
+        margin : 0;
+        padding : 0;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+        color : inherit;
+    }
+
+    /* 커스텀 UI */
+
+    .layout {
+        width: 1200px;
+        margin : 0 auto;
+    }
+    
+    .layout img {
+        margin : 30px auto;
+        margin-bottom: 0;
+    }
+
+    header {
+        background-color: #232323;
+    }
+
+    .navbar {
+        width : 1200px;
+        margin : 0 auto;
+        color : white;
+
+    }
+
+    .navbar span {
+        font-size : 1.3rem;
+        font-weight : bold;
+    }
+
+    .logo-area {
+        text-align: center;
+        width : 240px;
+        display: inline-block;
+    }
+
+    .bin {
+        display: inline-block;
+        width : calc(100% - 900px);
+    }
+
+    .right-menu{
+        text-align: center;
+        width : 650px;
+        display: inline-block;
+    }
+
+    .right-munu > ul > i {
+        margin-right: 10px;
+    }
+
+    .right-menu ul > li {
+        font-size: 1.05rem;
+        position: relative;
+        text-align: center;
+        display: inline-block;
+    }
+
+    .right-menu ul li > a {
+        display: block;
+        white-space: nowrap;
+    }
+
+    .right-menu ul > li > a{
+        padding : 22.5px 30px;
+    }
+    
+    .right-menu > ul > li > a > i, .right-menu > ul > li > ul span{
+        margin-right: 10px;
+    }
+
+    .right-menu > ul > li > ul{
+        display: none;
+        position: absolute;
+        background-color: #232323;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5);
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .right-menu > ul > li > ul > li {
+        width: 100%;
+    }
+
+    .right-menu > ul > li > ul > li > a {
+        padding-left : 12px;
+        padding-right: 15px; 
+    }
+
+    .right-menu > ul > li:hover > ul {
+        display: block;
+    }
+
+    .right-menu > ul > li > a:hover{
+        background-color: white;
+        color : black;
+    }
+
+    .right-menu > ul > li > ul > li > a:hover{
+        background-color: white;
+        color : black;
+    }
+
+    .work-list-box {
+        margin-left : 13px;
+    }
+
+    .work-list-box * {
+        display: inline-block;
+    }
+
+
+    .work-list-box > ul {
+        margin-left : 15px;
+        margin-right : 15px;
+    }
+
+    .work-list-box > ul > li {
+        width : 31%;
+        margin : 10px;
+    }
+
+    .img-box img {
+        margin-top: 0;
+        width: 100%;
+    }
+
+    .inline-grid {
+        margin: 0 !important; 
+    }
+
+    .work-name {
+        font-weight: bold;
+    }
+
+    .work-name, .work-date-period{
+        display: block;
+        text-align: center;
+    }
+
+
+    .work-list-box > ul > li > div > .img-box {
+        position : relative;
+        overflow : hidden;
+    }
+
+    .work-list-box > ul > li > div > .img-box > div {
+        background-color:rgba(0,0,0,0);
+        position:absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        transition: background-color 1s;
+    }
+
+    .work-list-box > ul > li:hover > div > .img-box > div {
+        background-color:rgba(0,0,0,0.7);
+    }
+
+    .work-list-box > ul > li > div > .img-box > img {
+        transition: transform 1s;
+        z-index:-1;
+        position:relative;
+    }
+
+    .work-list-box > ul > li:hover > div > .img-box > img {
+        transform:scale(1.4);
+    }
+</style>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <!-- 로고 영역 -->
+            <div class="logo-area">
+                <span>
+                    <i class="far fa-lemon"></i>
+                </span>
+                <span>
+                    DESIGN LEMON
+                </span>
+            </div>
+
+            <!-- 빈 영역 -->
+            <div class="bin">
+            </div>
+
+            <!-- 메뉴 영역 -->
+            <div class="right-menu">
+                <ul>
+                    <li><a href="#"><i class="fas fa-home"></i>HOME</a></li>
+                    <li><a href="#"><i class="fas fa-address-card"></i>ABOUT ME</a></li>
+                    <li><a href="#"><i class="fas fa-newspaper"></i>ARTICLES</a>
+                        <ul>
+                            <li><a href="#"><span><i class="fas fa-code"></i></span>WEB CODING</a></li>
+                            <li><a href="#"><span><i class="fas fa-mobile-alt"></i></span>UX/UI</a></li>
+                        </ul>
+                    
+                    </li>
+                    <li><a href="#"><i class="fas fa-code"></i>PORFOLIO</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <section class="section layout">
+        <div>
+            <img src="https://picsum.photos/id/181/1200/500">
+        </div>
+        <div class="work-list-box">
+            <ul class="inline-grid">
+              <li>
+                <div>
+                  <div class="img-box">
+                    <div></div>
+                    <img src="https://picsum.photos/id/185/500/500" alt="">
+                  </div>
+                  <div class="work-name">
+                    작품명1
+                  </div>
+                  <div class="work-date-period">
+                    2021-05, 2주
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <div class="img-box">
+                    <div></div>
+                    <img src="https://picsum.photos/id/186/500/500" alt="">
+                  </div>
+                  <div class="work-name">
+                    작품명1
+                  </div>
+                  <div class="work-date-period">
+                    2021-05, 2주
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <div class="img-box">
+                    <div></div>
+                    <img src="https://picsum.photos/id/187/500/500" alt="">
+                  </div>
+                  <div class="work-name">
+                    작품명1
+                  </div>
+                  <div class="work-date-period">
+                    2021-05, 2주
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <div class="img-box">
+                    <div></div>
+                    <img src="https://picsum.photos/id/188/500/500" alt="">
+                  </div>
+                  <div class="work-name">
+                    작품명1
+                  </div>
+                  <div class="work-date-period">
+                    2021-05, 2주
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <div class="img-box">
+                    <div></div>
+                    <img src="https://picsum.photos/id/189/500/500" alt="">
+                  </div>
+                  <div class="work-name">
+                    작품명1
+                  </div>
+                  <div class="work-date-period">
+                    2021-05, 2주
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <div class="img-box">
+                    <div></div>
+                    <img src="https://picsum.photos/id/190/500/500" alt="">
+                  </div>
+                  <div class="work-name">
+                    작품명1
+                  </div>
+                  <div class="work-date-period">
+                    2021-05, 2주
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <div class="img-box">
+                    <div></div>
+                    <img src="https://picsum.photos/id/191/500/500" alt="">
+                  </div>
+                  <div class="work-name">
+                    작품명1
+                  </div>
+                  <div class="work-date-period">
+                    2021-05, 2주
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <div class="img-box">
+                    <div></div>
+                    <img src="https://picsum.photos/id/192/500/500" alt="">
+                  </div>
+                  <div class="work-name">
+                    작품명1
+                  </div>
+                  <div class="work-date-period">
+                    2021-05, 2주
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+    </section>
+</body>
+</html>
